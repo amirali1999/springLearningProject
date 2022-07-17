@@ -66,6 +66,7 @@ public class Response {
             }
             map.put("product",sb.toString());
             map.put("users",responseInvoice.getUsers().getName());
+            map.put("totalPrice",String.valueOf(responseInvoice.getTotalPrice()));
             list.add(map);
         }
         return list;

@@ -24,16 +24,18 @@ public class Invoice {
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "users_id")
     private Users users;
-    @Transient
     private int totalPrice;
 
     public Invoice(List<Product> product, Users users) {
         this.product = product;
         this.users = users;
+        setTotalPrice();
     }
 
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice += totalPrice;
+    public void setTotalPrice() {
+        for(Product product:getProduct()){
+            this.totalPrice = product.getUnitPrice();
+        }
     }
 
     @Override
