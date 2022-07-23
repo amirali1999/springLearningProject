@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Product;
-import com.example.demo.entity.Users;
 import com.example.demo.exception.AddNewObjectException;
 import com.example.demo.exception.DeleteObjectException;
 import com.example.demo.exception.UpdateObjectException;

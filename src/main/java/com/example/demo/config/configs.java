@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import com.example.demo.entity.Invoice;
 import com.example.demo.entity.Product;
+import com.example.demo.entity.Role;
 import com.example.demo.entity.Users;
 import com.example.demo.repositories.InvoiceRepository;
 import com.example.demo.repositories.ProductRepository;
@@ -11,7 +12,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import static com.example.demo.entity.ERole.ROLE_ADMIN;
+import static com.example.demo.entity.ERole.ROLE_USER;
+
+//import static com.example.demo.entity.ERole.ROLE_ADMIN;
+//import static com.example.demo.entity.ERole.ROLE_USER;
 
 @Configuration
 public class configs {
@@ -19,17 +28,26 @@ public class configs {
     CommandLineRunner commandLineRunner(
             UsersRepository usersRepository, ProductRepository productRepository, InvoiceRepository invoiceRepository) {
         return args -> {
+            Role aarole = new Role();
+            Role jrole = new Role();
+            aarole.setName(ROLE_USER);
+            jrole.setName(ROLE_USER);
+            jrole.setName(ROLE_ADMIN);
+            Set<Role> amiraliRoles = new HashSet<>();
+            Set<Role> joeRoles = new HashSet<>();
+            amiraliRoles.add(aarole);
+            joeRoles.add(jrole);
             Users amirali = new Users(
                     "amirali",
                     "amirali99",
-                    "admin",
+                    amiraliRoles,
                     "123456"
             );
             Users joe = new Users(
                     "mehdi",
                     "joe",
-                    "user",
-                    "123456"
+                    joeRoles,
+                    "$2y$10$m2cZEvlMTMOai9b7j0eGH.mDUcBxbADvDqoYbRma.tvBZI6MUROXO"
             );
             Product cake = new Product(
                     "cake",

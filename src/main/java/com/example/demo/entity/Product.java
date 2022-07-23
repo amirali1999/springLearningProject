@@ -8,14 +8,9 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@Entity
-@Table
+@Getter @Setter @NoArgsConstructor @Entity @Table
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id = 0;
     private String name;
     private String category;

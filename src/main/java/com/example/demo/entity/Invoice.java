@@ -9,11 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-@Getter
-@Setter
-@NoArgsConstructor
-@Entity
-@Table
+@Getter @Setter @NoArgsConstructor @Entity @Table
 public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

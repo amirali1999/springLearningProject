@@ -27,15 +27,17 @@ public class UserController {
         List<Users> rslt = userService.getUsers();
         return Response.generateResponseUser(rslt);
     }
-    @GetMapping(path = "/admins")
-    public List<Map<String, String>> getAdminUsers(){
-        List<Users> rslt = userService.getAdminUsers();
-        return Response.generateResponseUser(rslt);
-    }
+
+//    //@PreAuthorize("hasRole('admin') or hasRole('user')")
+//    @GetMapping(path = "/admins")
+//    public List<Map<String, String>> getAdminUsers(){
+//        List<Users> rslt = userService.getAdminUsers();
+//        return Response.generateResponseUser(rslt);
+//    }
 
     @PostMapping
-    public void addNewUser(@RequestBody Users user) throws AddNewObjectException {
-        userService.addNewUser(user);
+    public void addNewUser(@RequestBody Users users) throws AddNewObjectException {
+        userService.addNewUser(users);
     }
 
     @DeleteMapping(path = "{usersID}")

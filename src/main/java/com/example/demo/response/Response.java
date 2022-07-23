@@ -2,6 +2,7 @@ package com.example.demo.response;
 
 import com.example.demo.entity.Invoice;
 import com.example.demo.entity.Product;
+import com.example.demo.entity.Role;
 import com.example.demo.entity.Users;
 
 import java.util.*;
@@ -14,7 +15,11 @@ public class Response {
             map.put("id",String.valueOf(responseProduct.getId()));
             map.put("name",responseProduct.getName());
             map.put("username",responseProduct.getUsername());
-            map.put("role",responseProduct.getRole());
+            StringBuilder roles = new StringBuilder();
+            for(Role role:responseProduct.getRoles()){
+                roles.append(","+String.valueOf(responseProduct.getRoles()));
+            }
+            map.put("role",roles.toString());
             StringBuilder sb = new StringBuilder();
             Boolean flag = true;
             for(Invoice invoice:responseProduct.getInvoice()){
