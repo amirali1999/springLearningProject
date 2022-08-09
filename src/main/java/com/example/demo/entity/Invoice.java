@@ -9,28 +9,32 @@ import java.util.List;
 import java.util.Objects;
 
 
-@Getter @Setter @NoArgsConstructor @Entity @Table
+@Getter @Setter @NoArgsConstructor @Entity @Table(name = "invoice")
 public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id = 0;
     @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinTable(name="invoice_product",joinColumns=@JoinColumn(name = "invoice_id"),inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> product;
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(name = "users_id")
+    @JoinColumn(name = "users_id",insertable = false,updatable = false)
     private Users users;
+    @Column(name = "users_id")
+    private long users_id;
     private int totalPrice;
 
     public Invoice(List<Product> product, Users users) {
         this.product = product;
         this.users = users;
+        this.users_id = users.getId();
         setTotalPrice();
     }
 
     public void setTotalPrice() {
         for(Product product:getProduct()){
-            this.totalPrice = product.getUnitPrice();
+            this.totalPrice += product.getUnitPrice();
         }
     }
 

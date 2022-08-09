@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Long> {
-//    @Query(value = "SELECT s FROM Users s WHERE s.role='user'")
+    //    @Query(value = "SELECT s FROM Users s WHERE s.role='user'")
 //    List<Users> findAdmins();
     Optional<Users> findByUsername(String username);
 }

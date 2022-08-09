@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Invoice;
+import com.example.demo.entity.InvoiceExample;
 import com.example.demo.entity.Product;
 import com.example.demo.entity.Users;
 import com.example.demo.exception.AddNewObjectException;
@@ -30,9 +31,9 @@ public class InvoiceController {
         return Response.generateResponseInvoice(rslt);
     }
 
-    @PostMapping
-    public void addNewInvoice(@RequestBody Invoice invoice) throws AddNewObjectException {
-        invoiceService.addNewInvoice(invoice);
+    @PostMapping(path = "/saveinvoice")
+    public void addNewInvoice(@RequestBody InvoiceExample invoiceExample) throws AddNewObjectException {
+        invoiceService.addNewInvoice(invoiceExample);
     }
 
     @DeleteMapping(path = "{invoiceID}")
@@ -41,10 +42,9 @@ public class InvoiceController {
     }
 
     @PutMapping(path = "{invoiceID}")
-    public void updateInvoice(@PathVariable("invoiceID") Long invoiceID
-            , @RequestParam(required = false) List<Product> product
-            , @RequestParam(required = false) Users users) throws UpdateObjectException {
-        invoiceService.updateInvoice(invoiceID, product, users);
+    public void updateInvoice(@PathVariable("invoiceID") Long invoiceID,@RequestBody InvoiceExample invoiceExample) throws UpdateObjectException {
+
+        invoiceService.updateInvoice(invoiceID,invoiceExample);
     }
 
 }

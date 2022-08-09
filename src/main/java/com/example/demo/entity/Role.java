@@ -2,19 +2,21 @@ package com.example.demo.entity;
 
 import javax.persistence.*;
 @Entity
-@Table
+@Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "id")
+    private long id;
     @Enumerated(EnumType.STRING)
+    @Column(name = "name")
     private ERole name;
     public Role() {
     }
     public Role(ERole name) {
         this.name = name;
     }
-    public Integer getId() {
+    public long getId() {
         return id;
     }
     public void setId(Integer id) {
