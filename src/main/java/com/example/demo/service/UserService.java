@@ -55,10 +55,6 @@ public class UserService{
         if (name != null && name.length() > 0 && !Objects.equals(users.getName(), name)) {
             users.setName(name);
         }
-        //TODO
-//        if (role != null && role.length() > 0 && !Objects.equals(user.getRoles(), role)) {
-//            user.setRoles(roles);
-//        }
         if (password != null && password.length() > 0 && !Objects.equals(users.getPassword(), password)) {
             users.setPassword(password);
         }

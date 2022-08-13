@@ -7,10 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor @Entity @Table(name = "users",schema = "public",catalog = "springProject")
-public class Users {
+public class Users implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id = 0;
     @Column(name = "name")

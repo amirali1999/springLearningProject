@@ -3,14 +3,16 @@ package com.example.demo.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.core.serializer.Serializer;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 
 @Getter @Setter @NoArgsConstructor @Entity @Table(name = "invoice")
-public class Invoice {
+public class Invoice implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -24,6 +26,9 @@ public class Invoice {
     @Column(name = "users_id")
     private long users_id;
     private int totalPrice;
+    @Column(name = "delivery_status")
+    @Enumerated(EnumType.STRING)
+    private EOrder deliveryStatus;
 
     public Invoice(List<Product> product, Users users) {
         this.product = product;
@@ -42,6 +47,10 @@ public class Invoice {
     public String toString() {
         return "Invoice{" +
                 "id=" + id +
+                ", product=" + product +
+                ", users=" + users +
+                ", totalPrice=" + totalPrice +
+                ", deliveryStatus="+deliveryStatus+
                 '}';
     }
 
