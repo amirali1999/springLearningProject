@@ -6,6 +6,8 @@ import com.example.demo.exception.DeleteObjectException;
 import com.example.demo.exception.UpdateObjectException;
 import com.example.demo.repositories.UsersRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,7 @@ public class UserService{
         this.usersRepository = usersRepository;
     }
     public List<Users> getUsers() {
+        log.info("******************* get users *******************");
         return usersRepository.findAll();
     }
 
@@ -32,6 +35,7 @@ public class UserService{
 
     public void addNewUser(Users users) throws AddNewObjectException {
         if (usersRepository.equals(users)) {
+            log.info("******************* add user *******************");
             throw new AddNewObjectException("the added user Exists!");
         }
         usersRepository.save(users);
@@ -41,10 +45,12 @@ public class UserService{
         if (!usersRepository.existsById(usersID)) {
             throw new DeleteObjectException("the requested user not found");
         }
+        log.info("******************* delete user *******************");
         usersRepository.deleteById(usersID);
     }
     @Transactional
     public void updateUser(Long usersID, String username, String name, String role, String password) throws UpdateObjectException {
+        log.info("******************* update users *******************");
         Users users = usersRepository.findById(usersID).orElseThrow(() -> new IllegalArgumentException("can not add"));
         if (!usersRepository.existsById(usersID)) {
             throw new UpdateObjectException("user not found!");

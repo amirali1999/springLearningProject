@@ -6,6 +6,7 @@ import com.example.demo.exception.AddNewObjectException;
 import com.example.demo.exception.DeleteObjectException;
 import com.example.demo.exception.UpdateObjectException;
 import com.example.demo.repositories.InvoiceRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 @Service
+@Slf4j
 public class InvoiceService {
 
     private final InvoiceRepository invoiceRepository;
@@ -32,10 +34,12 @@ public class InvoiceService {
     }
 
     public List<Invoice> getInvoice() {
+        log.info("******************* get invoice *******************");
         return invoiceRepository.findAll();
     }
 
     public void addNewInvoice(InvoiceExample invoiceExample) throws AddNewObjectException {
+        log.info("******************* add invoice *******************");
         Users users = invoiceRepository.findUser(invoiceExample.users_id);
         List<Product> products = new ArrayList<>();
         IntStream.range(0, invoiceExample.product_id.length)
@@ -47,12 +51,12 @@ public class InvoiceService {
         invoiceRepository.save(invoice);
 
         //use activemq for send invoice to consumer
-        System.out.println("delivery send to consumer - delivery details: " + invoice);
+        log.info("delivery send to consumer - delivery details: " + invoice);
         jmsTemplate.convertAndSend(queue, invoice);
     }
 
     public void deleteInvoice(Long invoiceID) throws DeleteObjectException {
-
+        log.info("******************* delete invoice *******************");
         if (!invoiceRepository.existsById(invoiceID)) {
             throw new DeleteObjectException("the requested user not found");
         }
@@ -60,6 +64,7 @@ public class InvoiceService {
     }
 
     public void updateInvoice(Long invoiceID, InvoiceExample invoiceExample) throws UpdateObjectException {
+        log.info("******************* update invoice *******************");
         Invoice invoice = invoiceRepository.findById(invoiceID).orElseThrow(() -> new IllegalArgumentException("can not add"));
         if (!invoiceRepository.existsById(invoiceID)) {
             throw new UpdateObjectException("user not found!");
