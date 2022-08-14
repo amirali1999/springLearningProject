@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.config.QuartzConfig;
 import com.example.demo.entity.*;
 import com.example.demo.exception.AddNewObjectException;
 import com.example.demo.exception.DeleteObjectException;

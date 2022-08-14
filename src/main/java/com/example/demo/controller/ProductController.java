@@ -28,18 +28,6 @@ public class ProductController {
         return Response.generateResponseProduct(rslt);
     }
 
-//    @GetMapping("/pricegreaterthan/{price}")
-//    public List<Map<String, String>> getPriceGreaterThan(@PathVariable("price") Integer price) {
-//        List<Product> rslt = productService.getPriceGreaterThan(price);
-//        return Response.generateResponseProduct(rslt);
-//    }
-//
-//    @GetMapping("/amountgreaterthan/{amount}")
-//    public List<Map<String, String>> getAmountGreaterThan(@PathVariable("amount") Integer amount) {
-//        List<Product> rslt = productService.getAmountGreaterThan(amount);
-//        return Response.generateResponseProduct(rslt);
-//    }
-
     @PostMapping
     public void addNewProduct(@RequestBody Product product) throws AddNewObjectException {
         productService.addNewProduct(product);

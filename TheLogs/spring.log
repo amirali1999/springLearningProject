@@ -1,40 +1,264 @@
-2022-08-13 16:15:13.523  INFO 5952 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 18.0.1.1 on DESKTOP-4D7S309 with PID 5952 (C:\Users\Hsoon\Desktop\springLearningProject\target\classes started by Hsoon in C:\Users\Hsoon\Desktop\springLearningProject)
-2022-08-13 16:15:13.525  INFO 5952 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-08-13 16:15:14.381  INFO 5952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-08-13 16:15:14.442  INFO 5952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 4 JPA repository interfaces.
-2022-08-13 16:15:14.951  INFO 5952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-08-13 16:15:14.957  INFO 5952 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-08-13 16:15:14.957  INFO 5952 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
-2022-08-13 16:15:15.063  INFO 5952 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-08-13 16:15:15.064  INFO 5952 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1486 ms
-2022-08-13 16:15:15.131  WARN 5952 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-08-13 16:15:15.189  INFO 5952 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-08-13 16:15:15.320  INFO 5952 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-08-13 16:15:15.362  INFO 5952 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-08-13 16:15:15.399  INFO 5952 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
-2022-08-13 16:15:15.512  INFO 5952 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-08-13 16:15:15.597  INFO 5952 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2022-08-13 16:15:16.142  INFO 5952 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-08-13 16:15:16.148  INFO 5952 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-08-13 16:15:16.991  WARN 5952 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-08-13 16:15:16.992  INFO 5952 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/v2/api-docs']
-2022-08-13 16:15:16.992  WARN 5952 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/ui']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-08-13 16:15:16.992  INFO 5952 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/ui']
-2022-08-13 16:15:16.992  WARN 5952 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-resources/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-08-13 16:15:16.992  INFO 5952 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-resources/**']
-2022-08-13 16:15:16.992  WARN 5952 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/security']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-08-13 16:15:16.993  INFO 5952 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/security']
-2022-08-13 16:15:16.993  WARN 5952 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-08-13 16:15:16.993  INFO 5952 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-ui.html']
-2022-08-13 16:15:16.993  WARN 5952 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-08-13 16:15:16.993  INFO 5952 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/webjars/**']
-2022-08-13 16:15:17.032  INFO 5952 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-08-13 16:15:17.149  INFO 5952 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@751b901a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6672b0ea, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c5c0306, org.springframework.security.web.header.HeaderWriterFilter@1360ef8d, org.springframework.web.filter.CorsFilter@1ccce165, org.springframework.security.web.authentication.logout.LogoutFilter@59263f7b, com.example.demo.security.jwt.AuthTokenFilter@35c95869, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4518497e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@14d6ede3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@943cf5, org.springframework.security.web.session.SessionManagementFilter@74e1d60b, org.springframework.security.web.access.ExceptionTranslationFilter@2da0770, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4c941d19]
-2022-08-13 16:15:17.404  INFO 5952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2022-08-13 16:15:17.405  INFO 5952 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-08-13 16:15:17.418  INFO 5952 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-08-13 16:15:17.446  INFO 5952 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-08-13 16:15:17.747  INFO 5952 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 4.579 seconds (JVM running for 5.209)
-2022-08-13 16:16:58.554  INFO 5952 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-08-13 16:16:58.556  INFO 5952 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-08-13 16:16:58.559  INFO 5952 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-14 15:53:28.252  INFO 12120 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 18.0.1.1 on DESKTOP-4D7S309 with PID 12120 (C:\Users\Hsoon\Desktop\springLearningProject\target\classes started by Hsoon in C:\Users\Hsoon\Desktop\springLearningProject)
+2022-08-14 15:53:28.263  INFO 12120 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-08-14 15:53:29.230  INFO 12120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-14 15:53:29.289  INFO 12120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 4 JPA repository interfaces.
+2022-08-14 15:53:29.858  INFO 12120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-08-14 15:53:29.867  INFO 12120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-14 15:53:29.867  INFO 12120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-14 15:53:29.983  INFO 12120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-14 15:53:29.983  INFO 12120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1650 ms
+2022-08-14 15:53:30.038  WARN 12120 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-14 15:53:30.091  INFO 12120 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-14 15:53:30.218  INFO 12120 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-14 15:53:30.266  INFO 12120 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-14 15:53:30.321  INFO 12120 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-14 15:53:30.482  INFO 12120 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-14 15:53:30.593  INFO 12120 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-14 15:53:31.163  INFO 12120 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-14 15:53:31.169  INFO 12120 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-14 15:53:31.731  INFO 12120 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2022-08-14 15:53:31.739  INFO 12120 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-08-14 15:53:31.739  INFO 12120 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2022-08-14 15:53:31.740  INFO 12120 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2022-08-14 15:53:31.740  INFO 12120 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-08-14 15:53:31.740  INFO 12120 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-08-14 15:53:31.740  INFO 12120 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2022-08-14 15:53:31.740  INFO 12120 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@25e24908
+2022-08-14 15:53:31.747  INFO 12120 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-08-14 15:53:32.057  WARN 12120 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:53:32.058  INFO 12120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/v2/api-docs']
+2022-08-14 15:53:32.059  WARN 12120 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/ui']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:53:32.060  INFO 12120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/ui']
+2022-08-14 15:53:32.060  WARN 12120 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-resources/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:53:32.060  INFO 12120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-resources/**']
+2022-08-14 15:53:32.060  WARN 12120 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/security']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:53:32.061  INFO 12120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/security']
+2022-08-14 15:53:32.061  WARN 12120 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:53:32.061  INFO 12120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-ui.html']
+2022-08-14 15:53:32.061  WARN 12120 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:53:32.061  INFO 12120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/webjars/**']
+2022-08-14 15:53:32.100  INFO 12120 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-14 15:53:32.198  INFO 12120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7621c3f7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@519a81dd, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ca006ac, org.springframework.security.web.header.HeaderWriterFilter@296949c8, org.springframework.web.filter.CorsFilter@5608e254, org.springframework.security.web.authentication.logout.LogoutFilter@61c4fc34, com.example.demo.security.jwt.AuthTokenFilter@720c0996, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1372696b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@215f8d7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d8b9dee, org.springframework.security.web.session.SessionManagementFilter@702432cc, org.springframework.security.web.access.ExceptionTranslationFilter@40b958c5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@89ff043]
+2022-08-14 15:53:32.442  INFO 12120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-08-14 15:53:32.444  INFO 12120 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-14 15:53:32.462  INFO 12120 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-14 15:53:32.491  INFO 12120 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-14 15:53:32.972  INFO 12120 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 5.072 seconds (JVM running for 5.692)
+2022-08-14 15:53:54.131  INFO 12120 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-14 15:53:54.131  INFO 12120 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-14 15:53:54.132  INFO 12120 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-08-14 15:53:54.201 ERROR 12120 --- [http-nio-8081-exec-1] com.example.demo.security.jwt.JwtUtils   : JWT token is expired: JWT expired at 2022-08-14T10:45:55Z. Current time: 2022-08-14T15:53:54Z, a difference of 18479200 milliseconds.  Allowed clock skew: 0 milliseconds.
+2022-08-14 15:53:54.211 ERROR 12120 --- [http-nio-8081-exec-1] c.e.demo.security.jwt.AuthEntryPointJwt  : Unauthorized error: Full authentication is required to access this resource
+2022-08-14 15:55:10.957  INFO 12120 --- [http-nio-8081-exec-4] com.example.demo.service.InvoiceService  : ******************* add invoice *******************
+2022-08-14 15:55:11.033  INFO 12120 --- [http-nio-8081-exec-4] com.example.demo.service.InvoiceService  : delivery send to consumer - delivery details: Invoice{id=44, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@1a173f58]'}, totalPrice=1400, deliveryStatus=DELIVERING}
+2022-08-14 15:57:22.627  INFO 12120 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-08-14 15:57:23.508  INFO 12120 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2022-08-14 15:57:23.509  INFO 12120 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-08-14 15:57:23.509  INFO 12120 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2022-08-14 15:57:23.509  INFO 12120 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2022-08-14 15:57:23.510  INFO 12120 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-14 15:57:23.512  INFO 12120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-14 15:57:23.514  INFO 12120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-14 15:58:15.371  INFO 12472 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 18.0.1.1 on DESKTOP-4D7S309 with PID 12472 (C:\Users\Hsoon\Desktop\springLearningProject\target\classes started by Hsoon in C:\Users\Hsoon\Desktop\springLearningProject)
+2022-08-14 15:58:15.374  INFO 12472 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-08-14 15:58:16.154  INFO 12472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-14 15:58:16.216  INFO 12472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 4 JPA repository interfaces.
+2022-08-14 15:58:16.687  INFO 12472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-08-14 15:58:16.695  INFO 12472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-14 15:58:16.695  INFO 12472 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-14 15:58:16.796  INFO 12472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-14 15:58:16.797  INFO 12472 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1376 ms
+2022-08-14 15:58:16.848  WARN 12472 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-14 15:58:16.898  INFO 12472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-14 15:58:17.022  INFO 12472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-14 15:58:17.061  INFO 12472 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-14 15:58:17.094  INFO 12472 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-14 15:58:17.192  INFO 12472 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-14 15:58:17.298  INFO 12472 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-14 15:58:17.805  INFO 12472 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-14 15:58:17.812  INFO 12472 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-14 15:58:18.368  INFO 12472 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2022-08-14 15:58:18.377  INFO 12472 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-08-14 15:58:18.377  INFO 12472 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2022-08-14 15:58:18.378  INFO 12472 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2022-08-14 15:58:18.378  INFO 12472 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-08-14 15:58:18.378  INFO 12472 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-08-14 15:58:18.378  INFO 12472 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2022-08-14 15:58:18.379  INFO 12472 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@430db481
+2022-08-14 15:58:18.385  INFO 12472 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-08-14 15:58:18.671  WARN 12472 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:58:18.672  INFO 12472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/v2/api-docs']
+2022-08-14 15:58:18.672  WARN 12472 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/ui']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:58:18.672  INFO 12472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/ui']
+2022-08-14 15:58:18.672  WARN 12472 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-resources/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:58:18.673  INFO 12472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-resources/**']
+2022-08-14 15:58:18.673  WARN 12472 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/security']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:58:18.673  INFO 12472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/security']
+2022-08-14 15:58:18.673  WARN 12472 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:58:18.673  INFO 12472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-ui.html']
+2022-08-14 15:58:18.673  WARN 12472 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 15:58:18.674  INFO 12472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/webjars/**']
+2022-08-14 15:58:18.713  INFO 12472 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-14 15:58:18.815  INFO 12472 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5cca5ff3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2fcad739, org.springframework.security.web.context.SecurityContextPersistenceFilter@206e5183, org.springframework.security.web.header.HeaderWriterFilter@115924ba, org.springframework.web.filter.CorsFilter@10664c3d, org.springframework.security.web.authentication.logout.LogoutFilter@2e096ac0, com.example.demo.security.jwt.AuthTokenFilter@6afced93, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32eb38e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13e6c544, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@79a92277, org.springframework.security.web.session.SessionManagementFilter@dc3eda6, org.springframework.security.web.access.ExceptionTranslationFilter@296949c8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9d2c0ed]
+2022-08-14 15:58:19.037  INFO 12472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-08-14 15:58:19.038  INFO 12472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-14 15:58:19.051  INFO 12472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-14 15:58:19.080  INFO 12472 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-14 15:58:19.386  INFO 12472 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 4.38 seconds (JVM running for 4.973)
+2022-08-14 15:58:24.944  INFO 12472 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-14 15:58:24.944  INFO 12472 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-14 15:58:24.945  INFO 12472 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-08-14 15:58:25.138  INFO 12472 --- [http-nio-8081-exec-1] com.example.demo.service.InvoiceService  : ******************* add invoice *******************
+2022-08-14 15:58:25.198  INFO 12472 --- [http-nio-8081-exec-1] com.example.demo.service.InvoiceService  : delivery send to consumer - delivery details: Invoice{id=45, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@7c612fb6]'}, totalPrice=1400, deliveryStatus=DELIVERING}
+2022-08-14 15:58:35.248  INFO 12472 --- [quartzScheduler_Worker-1] com.example.demo.job.QuartzJob           : Invoice{id=45, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@588abf8f]'}, totalPrice=1400, deliveryStatus=DELIVERING}
+2022-08-14 15:59:58.590  INFO 12472 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-08-14 15:59:59.337  INFO 12472 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2022-08-14 15:59:59.337  INFO 12472 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-08-14 15:59:59.338  INFO 12472 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2022-08-14 15:59:59.338  INFO 12472 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2022-08-14 15:59:59.340  INFO 12472 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-14 15:59:59.346  INFO 12472 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-14 15:59:59.368  INFO 12472 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-14 16:00:04.956  INFO 18012 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 18.0.1.1 on DESKTOP-4D7S309 with PID 18012 (C:\Users\Hsoon\Desktop\springLearningProject\target\classes started by Hsoon in C:\Users\Hsoon\Desktop\springLearningProject)
+2022-08-14 16:00:04.959  INFO 18012 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-08-14 16:00:05.764  INFO 18012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-14 16:00:05.822  INFO 18012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 4 JPA repository interfaces.
+2022-08-14 16:00:06.357  INFO 18012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-08-14 16:00:06.363  INFO 18012 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-14 16:00:06.363  INFO 18012 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-14 16:00:06.470  INFO 18012 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-14 16:00:06.470  INFO 18012 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1462 ms
+2022-08-14 16:00:06.523  WARN 18012 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-14 16:00:06.583  INFO 18012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-14 16:00:06.706  INFO 18012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-14 16:00:06.742  INFO 18012 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-14 16:00:06.776  INFO 18012 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-14 16:00:06.904  INFO 18012 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-14 16:00:07.010  INFO 18012 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-14 16:00:07.517  INFO 18012 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-14 16:00:07.522  INFO 18012 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-14 16:00:08.072  INFO 18012 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2022-08-14 16:00:08.081  INFO 18012 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-08-14 16:00:08.081  INFO 18012 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2022-08-14 16:00:08.081  INFO 18012 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2022-08-14 16:00:08.082  INFO 18012 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-08-14 16:00:08.082  INFO 18012 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-08-14 16:00:08.082  INFO 18012 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2022-08-14 16:00:08.082  INFO 18012 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@71817f66
+2022-08-14 16:00:08.088  INFO 18012 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-08-14 16:00:08.370  WARN 18012 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:00:08.370  INFO 18012 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/v2/api-docs']
+2022-08-14 16:00:08.370  WARN 18012 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/ui']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:00:08.370  INFO 18012 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/ui']
+2022-08-14 16:00:08.370  WARN 18012 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-resources/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:00:08.371  INFO 18012 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-resources/**']
+2022-08-14 16:00:08.371  WARN 18012 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/security']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:00:08.371  INFO 18012 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/security']
+2022-08-14 16:00:08.371  WARN 18012 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:00:08.371  INFO 18012 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-ui.html']
+2022-08-14 16:00:08.371  WARN 18012 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:00:08.372  INFO 18012 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/webjars/**']
+2022-08-14 16:00:08.415  INFO 18012 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-14 16:00:08.558  INFO 18012 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2a4f1bc5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@224e7aa5, org.springframework.security.web.context.SecurityContextPersistenceFilter@74ab8610, org.springframework.security.web.header.HeaderWriterFilter@49741e80, org.springframework.web.filter.CorsFilter@89ff043, org.springframework.security.web.authentication.logout.LogoutFilter@3b3b2290, com.example.demo.security.jwt.AuthTokenFilter@54a033b8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@296949c8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f0b5619, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d145177, org.springframework.security.web.session.SessionManagementFilter@5af1b221, org.springframework.security.web.access.ExceptionTranslationFilter@4964d801, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6d2f910b]
+2022-08-14 16:00:08.804  INFO 18012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-08-14 16:00:08.806  INFO 18012 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-14 16:00:08.822  INFO 18012 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-14 16:00:08.861  INFO 18012 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-14 16:00:09.167  INFO 18012 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 4.558 seconds (JVM running for 5.191)
+2022-08-14 16:00:16.733  INFO 18012 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-14 16:00:16.734  INFO 18012 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-14 16:00:16.735  INFO 18012 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-08-14 16:00:16.913  INFO 18012 --- [http-nio-8081-exec-1] com.example.demo.service.InvoiceService  : ******************* add invoice *******************
+2022-08-14 16:00:16.968  INFO 18012 --- [http-nio-8081-exec-1] com.example.demo.service.InvoiceService  : delivery send to consumer - delivery details: Invoice{id=46, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@4d38bd8e]'}, totalPrice=1400, deliveryStatus=DELIVERING}
+2022-08-14 16:00:27.026  INFO 18012 --- [quartzScheduler_Worker-1] com.example.demo.job.QuartzJob           : Invoice{id=46, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@35909601]'}, totalPrice=1400, deliveryStatus=DELIVERED}
+2022-08-14 16:04:40.060  INFO 18012 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-08-14 16:04:40.184  INFO 18012 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2022-08-14 16:04:40.184  INFO 18012 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2022-08-14 16:04:40.185  INFO 18012 --- [SpringApplicationShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2022-08-14 16:04:40.185  INFO 18012 --- [SpringApplicationShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2022-08-14 16:04:40.186  INFO 18012 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-14 16:04:40.188  INFO 18012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-14 16:04:40.190  INFO 18012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-14 16:04:58.586  INFO 9484 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 18.0.1.1 on DESKTOP-4D7S309 with PID 9484 (C:\Users\Hsoon\Desktop\springLearningProject\target\classes started by Hsoon in C:\Users\Hsoon\Desktop\springLearningProject)
+2022-08-14 16:04:58.589  INFO 9484 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-08-14 16:04:59.373  INFO 9484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-14 16:04:59.431  INFO 9484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 4 JPA repository interfaces.
+2022-08-14 16:04:59.908  INFO 9484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-08-14 16:04:59.915  INFO 9484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-14 16:04:59.915  INFO 9484 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-08-14 16:05:00.018  INFO 9484 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-14 16:05:00.018  INFO 9484 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1370 ms
+2022-08-14 16:05:00.070  WARN 9484 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-14 16:05:00.119  INFO 9484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-14 16:05:00.243  INFO 9484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-14 16:05:00.279  INFO 9484 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-14 16:05:00.310  INFO 9484 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-08-14 16:05:00.417  INFO 9484 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-14 16:05:00.519  INFO 9484 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-08-14 16:05:01.025  INFO 9484 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-14 16:05:01.032  INFO 9484 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-14 16:05:01.421  INFO 9484 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2022-08-14 16:05:01.429  INFO 9484 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2022-08-14 16:05:01.429  INFO 9484 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2022-08-14 16:05:01.430  INFO 9484 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2022-08-14 16:05:01.431  INFO 9484 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2022-08-14 16:05:01.431  INFO 9484 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2022-08-14 16:05:01.431  INFO 9484 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2022-08-14 16:05:01.431  INFO 9484 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4270705f
+2022-08-14 16:05:01.437  INFO 9484 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2022-08-14 16:05:01.910  WARN 9484 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/v2/api-docs']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:05:01.911  INFO 9484 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/v2/api-docs']
+2022-08-14 16:05:01.912  WARN 9484 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/ui']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:05:01.912  INFO 9484 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/ui']
+2022-08-14 16:05:01.912  WARN 9484 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-resources/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:05:01.913  INFO 9484 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-resources/**']
+2022-08-14 16:05:01.913  WARN 9484 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/configuration/security']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:05:01.913  INFO 9484 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/configuration/security']
+2022-08-14 16:05:01.913  WARN 9484 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:05:01.913  INFO 9484 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/swagger-ui.html']
+2022-08-14 16:05:01.914  WARN 9484 --- [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2022-08-14 16:05:01.914  INFO 9484 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/webjars/**']
+2022-08-14 16:05:01.951  INFO 9484 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-14 16:05:02.052  INFO 9484 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f451970, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a7c8cb7, org.springframework.security.web.context.SecurityContextPersistenceFilter@115924ba, org.springframework.security.web.header.HeaderWriterFilter@7878459f, org.springframework.web.filter.CorsFilter@32675dd4, org.springframework.security.web.authentication.logout.LogoutFilter@47ab3688, com.example.demo.security.jwt.AuthTokenFilter@54e680fe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@252d2ac0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4425b6ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2351255a, org.springframework.security.web.session.SessionManagementFilter@1be3a294, org.springframework.security.web.access.ExceptionTranslationFilter@39acf187, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@560c3758]
+2022-08-14 16:05:02.283  INFO 9484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-08-14 16:05:02.283  INFO 9484 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-14 16:05:02.297  INFO 9484 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-14 16:05:02.332  INFO 9484 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-14 16:05:02.624  INFO 9484 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 4.479 seconds (JVM running for 5.096)
+2022-08-14 16:05:08.398  INFO 9484 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-14 16:05:08.399  INFO 9484 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-14 16:05:08.400  INFO 9484 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-08-14 16:05:08.601  INFO 9484 --- [http-nio-8081-exec-1] com.example.demo.service.InvoiceService  : ******************* add invoice *******************
+2022-08-14 16:05:08.665  INFO 9484 --- [http-nio-8081-exec-1] com.example.demo.service.InvoiceService  : delivery send to consumer - delivery details: Invoice{id=47, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@761ca2ab]'}, totalPrice=1400, deliveryStatus=DELIVERING}
+2022-08-14 16:05:18.716  INFO 9484 --- [quartzScheduler_Worker-1] c.e.demo.config.quartz.job.QuartzJob     : Invoice{id=47, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@70fd9604]'}, totalPrice=1400, deliveryStatus=DELIVERED}
+2022-08-14 16:05:35.296  INFO 9484 --- [http-nio-8081-exec-3] com.example.demo.service.InvoiceService  : ******************* add invoice *******************
+2022-08-14 16:05:35.303  INFO 9484 --- [http-nio-8081-exec-3] com.example.demo.service.InvoiceService  : delivery send to consumer - delivery details: Invoice{id=48, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@641ead39]'}, totalPrice=1400, deliveryStatus=DELIVERING}
+2022-08-14 16:05:45.320  INFO 9484 --- [quartzScheduler_Worker-2] c.e.demo.config.quartz.job.QuartzJob     : Invoice{id=48, product=[Product{name='donut', category='desert', unitPrice='200', amount='6'}, Product{name='chicken sandwich', category='sandwich', unitPrice='500', amount='10'}, Product{name='chicken pizza', category='pizza', unitPrice='700', amount='15'}], users=User{name='amirali', username='amirali99', role='[com.example.demo.entity.Role@3e48c0a3]'}, totalPrice=1400, deliveryStatus=DELIVERED}
