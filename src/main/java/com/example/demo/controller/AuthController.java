@@ -1,16 +1,20 @@
 package com.example.demo.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 
+import com.example.demo.document.Log;
 import com.example.demo.payload.request.LoginRequest;
 //import com.example.demo.payload.request.SignupRequest;
 import com.example.demo.payload.response.JwtResponse;
+import com.example.demo.repositories.LogRepository;
 import com.example.demo.repositories.RoleRepository;
 import com.example.demo.repositories.UsersRepository;
 import com.example.demo.security.jwt.JwtUtils;
 import com.example.demo.security.services.UserDetailsImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
+@Slf4j
 public class AuthController {
     @Autowired
     AuthenticationManager authenticationManager;
@@ -35,6 +40,8 @@ public class AuthController {
     @Autowired
     RoleRepository roleRepository;
     @Autowired
+    LogRepository logRepository;
+    @Autowired
     PasswordEncoder encoder;
     @Autowired
     JwtUtils jwtUtils;
@@ -42,8 +49,10 @@ public class AuthController {
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-        System.out.println(loginRequest.getUsername());
-        System.out.println(loginRequest.getPassword());
+
+        log.info("login-------->username:"+loginRequest.getUsername());
+        logRepository.save(new Log(LocalDateTime.now().toString(),"login->username:"+loginRequest.getUsername()));
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
 
