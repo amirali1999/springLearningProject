@@ -38,6 +38,12 @@ public class Users implements Serializable {
         this.password = password;
     }
 
+    public Users(String name, String username, String password) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "User{" +

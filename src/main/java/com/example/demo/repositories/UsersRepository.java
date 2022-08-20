@@ -16,4 +16,6 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
     @Query(value = "SELECT s FROM Users s WHERE s.id=:#{#users_id}")
     Users findUser(@Param("users_id") long usersId);
+    @Query(value = "SELECT s FROM Users s WHERE s.username=:#{#username}")
+    Optional<Users> existsByUsername(@Param("username") String username);
 }
