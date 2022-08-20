@@ -15,4 +15,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query(value = "SELECT s FROM Product s WHERE s.amount>=:#{#amount}")
     List<Product> amountBiggerThan(@Param("amount") Integer amount);
+
+    @Query(value = "SELECT s FROM Product s WHERE s.id=:#{#product_id}")
+    Product findProduct(@Param("product_id") long productID);
 }

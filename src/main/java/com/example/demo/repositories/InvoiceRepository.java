@@ -16,11 +16,11 @@ import java.util.List;
 
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
-    @Query(value = "SELECT s FROM Users s WHERE s.id=:#{#users_id}")
-    Users findUser(@Param("users_id") long usersId);
+//    @Query(value = "SELECT s FROM Users s WHERE s.id=:#{#users_id}")
+//    Users findUser(@Param("users_id") long usersId);
 
-    @Query(value = "SELECT s FROM Product s WHERE s.id=:#{#product_id}")
-    Product findProduct(@Param("product_id") long productID);
+//    @Query(value = "SELECT s FROM Product s WHERE s.id=:#{#product_id}")
+//    Product findProduct(@Param("product_id") long productID);
 
     @Modifying
     @Query(value = "update Invoice u set u.deliveryStatus = :status where u.id = :id")

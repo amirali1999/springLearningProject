@@ -7,6 +7,8 @@ import com.example.demo.exception.DeleteObjectException;
 import com.example.demo.exception.UpdateObjectException;
 import com.example.demo.repositories.InvoiceRepository;
 import com.example.demo.repositories.LogRepository;
+import com.example.demo.repositories.ProductRepository;
+import com.example.demo.repositories.UsersRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
@@ -23,6 +25,8 @@ import java.util.stream.IntStream;
 public class InvoiceService {
 
     private final InvoiceRepository invoiceRepository;
+    private final ProductRepository productRepository;
+    private final UsersRepository usersRepository;
     private final LogRepository logRepository;
     @Autowired
     JmsTemplate jmsTemplate;
@@ -30,8 +34,10 @@ public class InvoiceService {
     Queue queue;
 
     @Autowired
-    public InvoiceService(InvoiceRepository invoiceRepository, LogRepository logRepository) {
+    public InvoiceService(InvoiceRepository invoiceRepository, ProductRepository productRepository, UsersRepository usersRepository, LogRepository logRepository) {
         this.invoiceRepository = invoiceRepository;
+        this.productRepository = productRepository;
+        this.usersRepository = usersRepository;
         this.logRepository = logRepository;
     }
 
@@ -46,11 +52,11 @@ public class InvoiceService {
         log.info("******************* add invoice *******************");
         logRepository.save(new Log(LocalDateTime.now().toString(),"add invoice"));
 
-        Users users = invoiceRepository.findUser(invoiceExample.users_id);
+        Users users = usersRepository.findUser(invoiceExample.users_id);
         List<Product> products = new ArrayList<>();
         IntStream.range(0, invoiceExample.product_id.length)
                 .forEach(i -> {
-                    products.add(invoiceRepository.findProduct(invoiceExample.product_id[i]));
+                    products.add(productRepository.findProduct(invoiceExample.product_id[i]));
                 });
         Invoice invoice = new Invoice(products, users);
         invoice.setDeliveryStatus(EOrder.DELIVERING);
@@ -81,13 +87,13 @@ public class InvoiceService {
         }
         List<Product> newProductList = new ArrayList<>();
         for (long newProductId : invoiceExample.product_id) {
-            Product newProduct = invoiceRepository.findProduct(newProductId);
+            Product newProduct = productRepository.findProduct(newProductId);
             newProductList.add(newProduct);
         }
         if (!invoice.getProduct().equals(newProductList)) {
             invoice.setProduct(newProductList);
         }
-        Users newUser = invoiceRepository.findUser(invoiceExample.users_id);
+        Users newUser = usersRepository.findUser(invoiceExample.users_id);
         if (!invoice.getUsers().equals(newUser)) {
             invoice.setUsers(newUser);
         }
