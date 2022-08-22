@@ -1,5 +1,6 @@
 package com.example.demo.payload.request;
 
+import com.example.demo.customValidator.RoleValidation;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +18,8 @@ public class AddNewUserRequest {
     @NotBlank
     @Size(min = 3, max = 20)
     private String username;
-
-    private Set<String> role;
+    @RoleValidation
+    private String role;
 
     @NotBlank
     @Size(min = 6, max = 40)

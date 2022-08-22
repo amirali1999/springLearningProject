@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.customValidator.RoleValidation;
 import com.example.demo.document.Log;
 import com.example.demo.entity.ERole;
 import com.example.demo.entity.Role;
@@ -57,7 +58,9 @@ public class UserService{
         // Create new user's account
         Users users = new Users(addNewUserRequest.getName(),addNewUserRequest.getUsername(),encoder.encode(addNewUserRequest.getPassword()));
 
-        Set<String> strRoles = addNewUserRequest.getRole();
+//        Set<String> strRoles = addNewUserRequest.getRole();
+        Set<String> strRoles = new HashSet<>();
+        strRoles.add(addNewUserRequest.getRole());
         Set<Role> roles = new HashSet<>();
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(ERole.ROLE_USER).get();
