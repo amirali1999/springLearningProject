@@ -1,12 +1,14 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Product;
-import com.example.demo.exception.AddNewObjectException;
-import com.example.demo.exception.DeleteObjectException;
-import com.example.demo.exception.UpdateObjectException;
+import com.example.demo.exception.type.AddNewObjectException;
+import com.example.demo.exception.type.DeleteObjectException;
+import com.example.demo.exception.type.UpdateObjectException;
+import com.example.demo.payload.request.ProductRequest;
 import com.example.demo.response.Response;
 import com.example.demo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,21 +31,20 @@ public class ProductController {
     }
 
     @PostMapping
-    public void addNewProduct(@RequestBody Product product) throws AddNewObjectException {
-        productService.addNewProduct(product);
+    public ResponseEntity<?> addNewProduct(@RequestBody Product product) throws AddNewObjectException {
+        return  productService.addNewProduct(product);
     }
 
-    @DeleteMapping(path = "/{productID}")
-    public void deleteProduct(@PathVariable("productID") Long productID) throws DeleteObjectException {
-        productService.deleteProduct(productID);
+    @DeleteMapping(path = "/{productname}/{category}")
+    public ResponseEntity<?> deleteProduct(@PathVariable("productname") String productName,@PathVariable("category") String category) throws DeleteObjectException {
+        return productService.deleteProduct(productName,category);
     }
 
-    @PutMapping(path = "/{productID}")
-    public void updateProduct(@PathVariable("productID") Long productID
-            , @RequestParam(required = false) String name
-            , @RequestParam(required = false) String category
-            , @RequestParam(required = false) Integer unitPrice
-            , @RequestParam(required = false) Integer amount) throws UpdateObjectException {
-        productService.updateProduct(productID, name, category, unitPrice, amount);
+    @PutMapping(path = "/{productName}/{category}")
+    public ResponseEntity<?> updateProduct(@PathVariable("productName") String productName,
+                                           @PathVariable("category") String category,
+                                           @RequestBody ProductRequest productRequest)
+            throws UpdateObjectException {
+        return productService.updateProduct(productName, category,productRequest);
     }
 }

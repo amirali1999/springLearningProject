@@ -1,12 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Invoice;
-import com.example.demo.entity.InvoiceExample;
-import com.example.demo.entity.Product;
-import com.example.demo.entity.Users;
-import com.example.demo.exception.AddNewObjectException;
-import com.example.demo.exception.DeleteObjectException;
-import com.example.demo.exception.UpdateObjectException;
+import com.example.demo.payload.request.InvoiceRequest;
+import com.example.demo.exception.type.AddNewObjectException;
+import com.example.demo.exception.type.DeleteObjectException;
+import com.example.demo.exception.type.UpdateObjectException;
 import com.example.demo.response.Response;
 import com.example.demo.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,19 +30,18 @@ public class InvoiceController {
     }
 
     @PostMapping(path = "/saveinvoice")
-    public void addNewInvoice(@RequestBody InvoiceExample invoiceExample) throws AddNewObjectException {
-        invoiceService.addNewInvoice(invoiceExample);
+    public void addNewInvoice(@RequestBody InvoiceRequest invoiceRequest) throws AddNewObjectException {
+        invoiceService.addNewInvoice(invoiceRequest);
     }
 
     @DeleteMapping(path = "{invoiceID}")
-    public void deleteInvoice(@PathVariable("invoiceID") Long invoiceID) throws DeleteObjectException {
-        invoiceService.deleteInvoice(invoiceID);
+    public String deleteInvoice(@PathVariable("invoiceID") Long invoiceID) throws DeleteObjectException {
+        return invoiceService.deleteInvoice(invoiceID);
     }
 
     @PutMapping(path = "{invoiceID}")
-    public void updateInvoice(@PathVariable("invoiceID") Long invoiceID,@RequestBody InvoiceExample invoiceExample) throws UpdateObjectException {
-
-        invoiceService.updateInvoice(invoiceID,invoiceExample);
+    public void updateInvoice(@PathVariable("invoiceID") Long invoiceID,@RequestBody InvoiceRequest invoiceRequest) throws UpdateObjectException {
+        invoiceService.updateInvoice(invoiceID, invoiceRequest);
     }
 
 }

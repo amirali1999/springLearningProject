@@ -1,14 +1,19 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Users;
-import com.example.demo.exception.AddNewObjectException;
-import com.example.demo.exception.DeleteObjectException;
-import com.example.demo.exception.UpdateObjectException;
+import com.example.demo.exception.type.AddNewObjectException;
+import com.example.demo.exception.type.DeleteObjectException;
+import com.example.demo.exception.type.UpdateObjectException;
+import com.example.demo.payload.request.AddNewUserRequest;
+import com.example.demo.payload.request.SignupRequest;
+import com.example.demo.payload.request.UsersRequest;
 import com.example.demo.response.Response;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -29,21 +34,17 @@ public class UserController {
     }
 
     @PostMapping
-    public void addNewUser(@RequestBody Users users) throws AddNewObjectException {
-        userService.addNewUser(users);
+    public ResponseEntity<?> addNewUser(@Valid @RequestBody AddNewUserRequest users) throws AddNewObjectException {
+        return userService.addNewUser(users);
     }
 
-    @DeleteMapping(path = "{usersID}")
-    public void deleteUser(@PathVariable("usersID") Long usersID) throws DeleteObjectException {
-        userService.deleteUser(usersID);
+    @DeleteMapping(path = "/delete/{username}")
+    public String deleteUser(@PathVariable("username") String userName) throws DeleteObjectException {
+        return userService.deleteUser(userName);
     }
 
-    @PutMapping(path = "{usersID}")
-    public void updateUser(@PathVariable("usersID") Long usersID
-            , @RequestParam(required = false) String name
-            , @RequestParam(required = false) String username
-            , @RequestParam(required = false) String role
-            , @RequestParam(required = false) String password) throws UpdateObjectException {
-        userService.updateUser(usersID, username, name, role, password);
+    @PutMapping(path = "{usersName}")
+    public ResponseEntity<?> updateUser(@PathVariable("usersName") String usersName,@RequestBody UsersRequest usersRequest) throws UpdateObjectException {
+        return userService.updateUser(usersName, usersRequest);
     }
 }

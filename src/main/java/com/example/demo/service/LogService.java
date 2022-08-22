@@ -21,12 +21,5 @@ public class LogService {
     public List<Log> getAllLogs(){
         return StreamSupport.stream(logRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
-//    public void save(final Log log){
-//        repository.save(log);
-//    }
-
-//    public Log findByService(final String service){
-//        return logRepository.findById(id).orElse(null);
-//    }
 }
 

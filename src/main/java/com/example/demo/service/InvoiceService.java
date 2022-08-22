@@ -2,9 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.document.Log;
 import com.example.demo.entity.*;
-import com.example.demo.exception.AddNewObjectException;
-import com.example.demo.exception.DeleteObjectException;
-import com.example.demo.exception.UpdateObjectException;
+import com.example.demo.exception.type.AddNewObjectException;
+import com.example.demo.exception.type.DeleteObjectException;
+import com.example.demo.exception.type.UpdateObjectException;
+import com.example.demo.payload.request.InvoiceRequest;
 import com.example.demo.repositories.InvoiceRepository;
 import com.example.demo.repositories.LogRepository;
 import com.example.demo.repositories.ProductRepository;
@@ -18,6 +19,7 @@ import javax.jms.Queue;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 @Service
@@ -48,17 +50,21 @@ public class InvoiceService {
         return invoiceRepository.findAll();
     }
 
-    public void addNewInvoice(InvoiceExample invoiceExample) throws AddNewObjectException {
+    public void addNewInvoice(InvoiceRequest invoiceRequest) throws AddNewObjectException {
         log.info("******************* add invoice *******************");
         logRepository.save(new Log(LocalDateTime.now().toString(),"add invoice"));
 
-        Users users = usersRepository.findUser(invoiceExample.users_id);
+        Optional<Users> users = usersRepository.findById(invoiceRequest.users_id).or(()->{
+            log.error("the added Invoice exists !");
+            logRepository.save(new Log(LocalDateTime.now().toString(),"Error:the added Invoice exists !"));
+            throw new AddNewObjectException("the added Invoice exists !");
+        });
         List<Product> products = new ArrayList<>();
-        IntStream.range(0, invoiceExample.product_id.length)
+        IntStream.range(0, invoiceRequest.product_id.length)
                 .forEach(i -> {
-                    products.add(productRepository.findProduct(invoiceExample.product_id[i]));
+                    products.add(productRepository.findProduct(invoiceRequest.product_id[i]));
                 });
-        Invoice invoice = new Invoice(products, users);
+        Invoice invoice = new Invoice(products, users.get());
         invoice.setDeliveryStatus(EOrder.DELIVERING);
         invoiceRepository.save(invoice);
 
@@ -67,37 +73,43 @@ public class InvoiceService {
         jmsTemplate.convertAndSend(queue, invoice);
     }
 
-    public void deleteInvoice(Long invoiceID) throws DeleteObjectException {
-        log.info("******************* delete invoice *******************");
-        logRepository.save(new Log(LocalDateTime.now().toString(),"delete invoice"));
+    public String deleteInvoice(Long invoiceID) throws DeleteObjectException {
 
-        if (!invoiceRepository.existsById(invoiceID)) {
-            throw new DeleteObjectException("the requested user not found");
+        if (invoiceRepository.existsById(invoiceID)) {
+            log.info("******************* delete invoice *******************");
+            logRepository.save(new Log(LocalDateTime.now().toString(),"delete invoice "+invoiceID));
+            invoiceRepository.deleteById(invoiceID);
+            return "invoice "+invoiceID+" delete successfully";
         }
-        invoiceRepository.deleteById(invoiceID);
+        else {
+            log.error("invoice "+invoiceID+" not found");
+            logRepository.save(new Log(LocalDateTime.now().toString(),"invoice "+invoiceID+" not found"));
+            throw new DeleteObjectException("invoice "+invoiceID+" not found");
+        }
     }
 
-    public void updateInvoice(Long invoiceID, InvoiceExample invoiceExample) throws UpdateObjectException {
+    public void updateInvoice(Long invoiceID, InvoiceRequest invoiceRequest) throws UpdateObjectException {
         log.info("******************* update invoice *******************");
         logRepository.save(new Log(LocalDateTime.now().toString(),"update invoice"));
 
-        Invoice invoice = invoiceRepository.findById(invoiceID).orElseThrow(() -> new IllegalArgumentException("can not add"));
-        if (!invoiceRepository.existsById(invoiceID)) {
-            throw new UpdateObjectException("user not found!");
-        }
+        Optional<Invoice> invoice = invoiceRepository.findById(invoiceID).or(() -> {
+            log.info("invoice not found");
+            logRepository.save(new Log(LocalDateTime.now().toString(),"invoice not found"));
+            throw new UpdateObjectException("invoice not found");
+        });
         List<Product> newProductList = new ArrayList<>();
-        for (long newProductId : invoiceExample.product_id) {
+        for (long newProductId : invoiceRequest.product_id) {
             Product newProduct = productRepository.findProduct(newProductId);
             newProductList.add(newProduct);
         }
-        if (!invoice.getProduct().equals(newProductList)) {
-            invoice.setProduct(newProductList);
+        if (!invoice.get().getProduct().equals(newProductList)) {
+            invoice.get().setProduct(newProductList);
         }
-        Users newUser = usersRepository.findUser(invoiceExample.users_id);
-        if (!invoice.getUsers().equals(newUser)) {
-            invoice.setUsers(newUser);
+        Users newUser = usersRepository.findById(invoiceRequest.users_id).get();
+        if (!invoice.get().getUsers().equals(newUser)) {
+            invoice.get().setUsers(newUser);
         }
-        invoice.setDeliveryStatus(EOrder.DELIVERED);
-        invoiceRepository.save(invoice);
+        invoice.get().setDeliveryStatus(EOrder.DELIVERED);
+        invoiceRepository.save(invoice.get());
     }
 }

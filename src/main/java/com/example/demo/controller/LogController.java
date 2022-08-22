@@ -21,13 +21,4 @@ public class LogController {
     public List<Log> getAllLogs(){
         return logService.getAllLogs();
     }
-//    @PostMapping
-//    public void save(@RequestBody final Log log){
-//        logService.save(log);
-//    }
-
-//    @GetMapping("/{id}")
-//    public Log findById(@PathVariable final String id){
-//        return logService.findByService(id);
-//    }
 }

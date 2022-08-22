@@ -2,18 +2,25 @@ package com.example.demo.service;
 
 import com.example.demo.document.Log;
 import com.example.demo.entity.Product;
-import com.example.demo.exception.AddNewObjectException;
-import com.example.demo.exception.DeleteObjectException;
-import com.example.demo.exception.UpdateObjectException;
+import com.example.demo.exception.type.AddNewObjectException;
+import com.example.demo.exception.type.DeleteObjectException;
+import com.example.demo.exception.type.UpdateObjectException;
+import com.example.demo.payload.request.ProductRequest;
+import com.example.demo.payload.response.MessageResponse;
 import com.example.demo.repositories.LogRepository;
 import com.example.demo.repositories.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -34,47 +41,59 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public void addNewProduct(Product product) throws AddNewObjectException {
+    public ResponseEntity<?> addNewProduct(@Valid @RequestBody Product product) throws AddNewObjectException {
         log.info("******************* add product *******************");
         logRepository.save(new Log(LocalDateTime.now().toString(),"add product"));
 
-        if (productRepository.equals(product)) {
-            throw new AddNewObjectException("the added product Exists!");
+        if (productRepository.existsByProductNameAndCategory(product.getName(),product.getCategory()).isPresent()) {
+            log.error("the added product exists !");
+            logRepository.save(new Log(LocalDateTime.now().toString(),"Error:the added product exists !"));
+            throw new AddNewObjectException("the added product exists !");
         }
         productRepository.save(product);
-
+        return ResponseEntity.ok(new MessageResponse("product add successfully !"));
     }
-
-    public void deleteProduct(Long productID) throws DeleteObjectException {
-        log.info("******************* delete product *******************");
-        logRepository.save(new Log(LocalDateTime.now().toString(),"delete product"));
-
-        if (!productRepository.existsById(productID)) {
-            throw new DeleteObjectException("the requested user not found");
+    @Transactional
+    public ResponseEntity<?> deleteProduct(String productName,String category) throws DeleteObjectException {
+        if (productRepository.existsByProductNameAndCategory(productName,category).isPresent()){
+            log.info("******************* delete product *******************");
+            logRepository.save(new Log(LocalDateTime.now().toString(),"delete product "+productName));
+            productRepository.deleteProduct(productName,category);
+            return ResponseEntity.ok(new MessageResponse("product delete successfully!"));
         }
-        productRepository.deleteById(productID);
+        else{
+            log.error("product "+productName+" in category "+category+" not found");
+            logRepository.save(new Log(LocalDateTime.now().toString(),"product "+productName+" in category "+category+" not found"));
+            throw new DeleteObjectException("product "+productName+" in category "+category+" not found");
+        }
     }
 
 //    @Transactional
-    public void updateProduct(Long productID, String name, String category, Integer unitPrice, Integer amount) throws UpdateObjectException {
+    public ResponseEntity<?> updateProduct(String productName, String category, ProductRequest productRequest) throws UpdateObjectException {
         log.info("******************* update product *******************");
         logRepository.save(new Log(LocalDateTime.now().toString(),"update product"));
-
-        Product product = productRepository.findById(productID).orElseThrow(() -> new IllegalArgumentException("can not add"));
-        if (!productRepository.existsById(productID)) {
-            throw new UpdateObjectException("user not found!");
+        Optional<Product> product = productRepository.existsByProductNameAndCategory(productName,category)
+                .or(() -> {
+                    log.info("product not found");
+                    logRepository.save(new Log(LocalDateTime.now().toString(),"product not found"));
+                    throw new UpdateObjectException("product not found");
+                });
+        if (!productRequest.getName().isEmpty() &&
+                !product.get().getName().equals(productRequest.getName()) &&
+                !productRepository.existsByProductNameAndCategory(productRequest.getName(),category).isPresent()) {
+            product.get().setName(productRequest.getName());
         }
-        if (name != null && name.length() > 0 && !Objects.equals(product.getName(), name)) {
-            product.setName(name);
+        if (!productRequest.getCategory().isEmpty() &&
+                !Objects.equals(product.get().getCategory(), productRequest.getCategory()) &&
+                !productRepository.existsByProductNameAndCategory(productName,productRequest.getCategory()).isPresent()) {
+            product.get().setCategory(productRequest.getCategory());
         }
-        if (category != null && category.length() > 0 && !Objects.equals(product.getCategory(), category)) {
-            product.setCategory(category);
+        if (productRequest.getUnitPrice() >= 0 && !Objects.equals(product.get().getUnitPrice(), productRequest.getUnitPrice())) {
+            product.get().setUnitPrice(productRequest.getUnitPrice());
         }
-        if (unitPrice != null && unitPrice >= 0 && !Objects.equals(product.getUnitPrice(), unitPrice)) {
-            product.setUnitPrice(unitPrice);
+        if (productRequest.getAmount() >= 0 && !Objects.equals(product.get().getAmount(), productRequest.getAmount())) {
+            product.get().setAmount(productRequest.getAmount());
         }
-        if (amount != null && amount >= 0 && !Objects.equals(product.getAmount(), amount)) {
-            product.setAmount(amount);
-        }
+        return ResponseEntity.ok(new MessageResponse("product update successfully!"));
     }
 }

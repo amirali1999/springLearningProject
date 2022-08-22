@@ -1,23 +1,14 @@
 package com.example.demo.payload.request;
+
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Set;
-
-import javax.validation.constraints.*;
 @Getter
 @Setter
-public class SignupRequest {
-
-    @NotBlank
-    @Size(max = 50)
+public class UsersRequest {
     private String name;
-
-    @NotBlank
-    @Size(min = 3, max = 20)
     private String username;
-
-    @NotBlank
-    @Size(min = 6, max = 40)
+    private Set<String> roles;
     private String password;
 }
